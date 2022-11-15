@@ -217,6 +217,10 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
 
     if (milliseconds <= 0) return null;
 
+    if (milliseconds > 8640000000000000) {
+      return null;
+    }
+
     return DateTime.fromMillisecondsSinceEpoch(milliseconds);
   }
 
