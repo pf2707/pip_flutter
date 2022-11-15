@@ -411,7 +411,7 @@ class PipFlutterPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
     private fun enablePictureInPicture(player: PipFlutterPlayer) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             player.setupMediaSession(flutterState!!.applicationContext, true)
-            activity!!.enterPictureInPictureMode(PictureInPictureParams.Builder().build())
+            activity!!.enterPictureInPictureMode(PictureInPictureParams.Builder().setAspectRatio(Rational(2, 3)).build())
             startPictureInPictureListenerTimer(player)
             player.onPictureInPictureStatusChanged(true)
         }
